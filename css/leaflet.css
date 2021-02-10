@@ -176,7 +176,7 @@
 	        transition: opacity 0.2s linear;
 	}
 .leaflet-fade-anim .leaflet-map-pane .leaflet-popup {
-	opacity: 0.9;
+	opacity: 1;
 	}
 .leaflet-zoom-animated {
 	-webkit-transform-origin: 0 0;
