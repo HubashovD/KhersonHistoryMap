@@ -68,9 +68,9 @@
 
 // <!--locations-->
 
-        layer_OpenStreetMap_0;
+        bounds_group.addLayer(layerLoc);
         map.addLayer(layerLoc);
-        function pop__1(feature, layer) {
+        function popLoc(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
@@ -103,7 +103,7 @@
             dataVar: 'json_location',
             layerName: 'layerLoc',
             pane: 'paneLoc',
-            // onEachFeature: pop__1,
+            onEachFeature: popLoc,
             style: style_centre,
             pointToLayer: function (feature, latlng) {
                 var context = {
