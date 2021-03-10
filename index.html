@@ -330,13 +330,14 @@
 
         setBounds();
         $("#close").on("click", function(d){ $("#openModal").css("display", "none"); })
+        $(".close").on("click", function(d){ $("#openModal").css("display", "none"); })
         </script>
     <div>
         
     </div>
     <div id="openModal" class="modal">
-        <a href="#close" title="Close" class="close">×</a>
-        <div id="modal_content">
+        <a href="#close" title="Close" class="close" id="close">×</a>
+        <div id="modal_content" style = "modal_content">
         </div>
     </div>
     
