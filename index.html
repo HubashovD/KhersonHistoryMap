@@ -80,28 +80,22 @@
          ******************************** */
 
         function popLoc(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                    <td class= "swot-style-title">Локація: ' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                    <td class = "swot-style-type">S (сильні сторони)</td>\
-                    <td class = "swot-style-type">W (слабкі сторони)</td>\
-                    </tr>\
-                    <td class= "swot-style">' + (feature.properties['S'] !== null ? autolinker.link(feature.properties['S'].toLocaleString()) : '') + '</td>\
-                    <td class= "swot-style">' + (feature.properties['W'] !== null ? autolinker.link(feature.properties['W'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                    <tr>\
-                    <td class = "swot-style-type">O (можливості)</td>\
-                    <td class = "swot-style-type">T (ризики)</td>\
-                    </tr>\
-                    </tr>\
-                    <tr>\
-                    <td class= "swot-style">' + (feature.properties['O'] !== null ? autolinker.link(feature.properties['O'].toLocaleString()) : '') + '</td>\
-                    <td class= "swot-style">' + (feature.properties['T'] !== null ? autolinker.link(feature.properties['T'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
+            var popupContent = '<div>\
+                    <div>\
+                    <span class= "swot-style-title">Локація: ' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</span>\
+                    </div>\
+                    <div class = "grid">\
+                    <span class = "swot-style-type-1">S (сильні сторони)</span>\
+                    <span class= "swot-style-1">' + (feature.properties['S'] !== null ? autolinker.link(feature.properties['S'].toLocaleString()) : '') + '</span>\
+                    <span class = "swot-style-type-2">W (слабкі сторони)</span>\
+                    <span class= "swot-style-2">' + (feature.properties['W'] !== null ? autolinker.link(feature.properties['W'].toLocaleString()) : '') + '</span>\
+                    <span class = "swot-style-type-3">O (можливості)</span>\
+                    <span class= "swot-style-3">' + (feature.properties['O'] !== null ? autolinker.link(feature.properties['O'].toLocaleString()) : '') + '</span>\
+                    <span class = "swot-style-type-4">T (ризики)</span>\
+                    <span class= "swot-style-4">' + (feature.properties['T'] !== null ? autolinker.link(feature.properties['T'].toLocaleString()) : '') + '</span>\
+                    </div>\
+                    </div>\
+                </div>>';
                 layer.on('click', function (e) { $("#openModal").css("display", "block");  });
                 layer.on('click', function (e) { $("#modal_content").html(popupContent);  });
         }
