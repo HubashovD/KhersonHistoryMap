@@ -24,9 +24,6 @@
     font-weight: bold;
 }
 
-.buildings-style{
-}
-
 .body-style{
     background-color:#efefef;
 }
@@ -44,7 +41,6 @@
     -webkit-transition: opacity 200ms ease-in; 
     -moz-transition: opacity 200ms ease-in;
     transition: opacity 200ms ease-in; /* анимация перехода */
-    pointer-events: none; /* элемент невидим для событий мыши */
     margin: 0;
     padding: 0;
     display: none;
@@ -58,6 +54,7 @@
 
 
 /* свойства для кнопки "Закрыть" */
+}
 .close {
     float: right;
     font-family: sans-serif;
