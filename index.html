@@ -10,18 +10,19 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <script src="jquery-3.3.1.js"></script>
         <style>
         #map {
-            width: 75%;
-            height: 100vh;
+            width: 60%;
+            height: 95vh;
+            margin: 5px;
         }
         </style>
         <title></title>
     </head>
     <body>
         <aside class="right_box">
-            <h2>Hello World</h2>
-
+            <div id="aside-popup"></div>
         </aside>
         <div id="map"></div>
         <script src="js/qgis2web_expressions.js"></script>
@@ -67,32 +68,40 @@
         function popLoc(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                    <td>' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                    <td class= "swot-style-title">Назва: ' + (feature.properties['name'] !== null ? autolinker.link(feature.properties['name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                    <td>' + (feature.properties['name'] !== null ? autolinker.link(feature.properties['name'].toLocaleString()) : '') + '</td>\
+                    <td class = "swot-style-type">S</td>\
+                    <td class = "swot-style-type">W</td>\
+                    </tr>\
+                    <td class= "swot-style">' + (feature.properties['S'] !== null ? autolinker.link(feature.properties['S'].toLocaleString()) : '') + '</td>\
+                    <td class= "swot-style">' + (feature.properties['W'] !== null ? autolinker.link(feature.properties['W'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                    <td>' + (feature.properties['S'] !== null ? autolinker.link(feature.properties['S'].toLocaleString()) : '') + '</td>\
-                    <td>' + (feature.properties['W'] !== null ? autolinker.link(feature.properties['W'].toLocaleString()) : '') + '</td>\
-                    <td>' + (feature.properties['O'] !== null ? autolinker.link(feature.properties['O'].toLocaleString()) : '') + '</td>\
-                    <td>' + (feature.properties['T'] !== null ? autolinker.link(feature.properties['T'].toLocaleString()) : '') + '</td>\
+                    <tr>\
+                    <td class = "swot-style-type">O</td>\
+                    <td class = "swot-style-type">T</td>\
+                    </tr>\
+                    </tr>\
+                    <tr>\
+                    <td class= "swot-style">' + (feature.properties['O'] !== null ? autolinker.link(feature.properties['O'].toLocaleString()) : '') + '</td>\
+                    <td class= "swot-style">' + (feature.properties['T'] !== null ? autolinker.link(feature.properties['T'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
-            layer.bindPopup(popupContent, {maxHeight: 1000});
+                layer.on('click', function (e) { $("#aside-popup").html(popupContent);  });
         }
 
         function style_locations() {
             return {
                 opacity: 0.5,
-                color: 'rgba(35,35,35,1.0)',
+                color: 'rgba(196,123,123,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'round',
                 weight: 5.0, 
                 fill: true,
                 fillOpacity: 0.3,
-                fillColor: 'rgba(35,35,35,1.0)',
+                fillColor: 'rgba(196,123,123,1.0)',
                 interactive: true
             }
         }
@@ -104,7 +113,7 @@
             dataVar: 'json_location',
             layerName: 'layerLoc',
             onEachFeature: popLoc,
-            style: style_centre,
+            style: style_locations,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
@@ -146,7 +155,7 @@
                 fill: true,
                 fillOpacity: 0.3,
                 fillColor: 'rgba(196,123,123,1.0)',
-                interactive: true
+                interactive: false
             }
         }
 
@@ -169,7 +178,7 @@
          ******************************** */
 
         function pop___2(feature, layer) {
-            var popupContent = '<table>\
+            var popupContent = '<table class="buildings-style">\
                     <tr>\
                         <th scope="row">Назва:</th>\
                         <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
@@ -207,7 +216,7 @@
                         <td>' + (feature.properties['Old protec'] !== null ? autolinker.link(feature.properties['Old protec'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
+            layer.on('click', function (e) { $("#aside-popup").html(popupContent);  });
         }
 
 
@@ -317,5 +326,8 @@
 
         setBounds();
         </script>
+    <div>
+        
+    </div>
     </body>
 </html>
