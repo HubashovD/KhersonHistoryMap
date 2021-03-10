@@ -25,11 +25,6 @@
             <div id="aside-popup"></div>
         </aside> -->
 
-
-
-          
-
-
         <div id="map"></div>
         <script src="js/qgis2web_expressions.js"></script>
         <script src="js/leaflet.js"></script>
@@ -94,7 +89,7 @@
                     <td class= "swot-style">' + (feature.properties['T'] !== null ? autolinker.link(feature.properties['T'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
-                layer.on('click', function (e) { $("#openModal").html(popupContent);  });
+                layer.on('click', function (e) { $("#modal-content").html(popupContent);  });
         }
 
         function style_locations() {
@@ -336,10 +331,10 @@
         
     </div>
     <div id="openModal" class="modal">
-        <a href="#close" title="Close" class="close">×</a>
-      <div class="modal-body">    
-        <p>Содержимое модального окна...</p>
+    <a href="#close" title="Close" class="close">×</a>
+    <div id="modal-content">
+
     </div>
-  </div>
+    </div>
     </body>
 </html>
