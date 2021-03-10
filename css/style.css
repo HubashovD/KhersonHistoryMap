@@ -10,12 +10,14 @@
 .grid{
     display: grid;
     width: 100%;
+    padding-top: 15px;
 }
 
 .swot-style-title{
     text-align: center;
     font-size: 15pt;
     font-weight: bold;
+    margin-bottom: 15px;
 }
 
 .swot-style-type-1{
