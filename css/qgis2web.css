@@ -18,12 +18,9 @@
             margin: 0 0 5px;
             color: #777;
         }
-        .leaflet-container {
-            background: #fff;
-            padding-right: 10px;
-        }
         .leaflet-popup-content {
-            width:auto;
+            width:1000px;
+            height: auto;
             padding-right:10px;
         }
         .leaflet-tooltip {
@@ -33,7 +30,6 @@
         }
         .leaflet-tooltip-left:before, .leaflet-tooltip-right:before {
             border: 0px;
-        }
         }
         .fa, .leaflet-container, a {
             color: #000000 !important;
