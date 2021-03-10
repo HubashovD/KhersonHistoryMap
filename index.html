@@ -82,7 +82,7 @@
         function popLoc(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                    <td class= "swot-style-title">Назва: ' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    <td class= "swot-style-title">Локація: ' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                     <td class = "swot-style-type">S</td>\
@@ -330,7 +330,7 @@
 
         L.control.layers(baseMaps,{
             '<img src="legend/rek.png" /> Реклама': layer__3,
-            '<img src="legend/buildings.png" /> Реєстр_памяток': layer___2,
+            '<img src="legend/buildings.png" /> Пам\'ятки історії': layer___2,
             '<img src="legend/center.png" /> Історичний центр міста': layer__1,
             '<img src="legend/locations.png" /> Локації': layerLoc,
             
