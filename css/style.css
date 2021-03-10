@@ -34,11 +34,11 @@
 /* свойства модального окна по умолчанию */
 .modal {
     position: absolute; /* фиксированное положение */
-    top: 10px;
-    right: 10px;
-    bottom: 10px;
-    left: 10px;
-    background: rgba(0,0,0,0.5); /* цвет фона */
+    top: 10%;
+    right: 10%;
+    bottom: 10%;
+    left: 10%;
+    background: white; /* цвет фона */
     z-index: 9999;
     opacity: 1; /* по умолчанию модальное окно прозрачно */
     -webkit-transition: opacity 200ms ease-in; 
@@ -47,6 +47,7 @@
     pointer-events: none; /* элемент невидим для событий мыши */
     margin: 0;
     padding: 0;
+    display: none;
 }
 
 /* при отображении модального окно */
@@ -55,12 +56,12 @@
 	  pointer-events: auto; /* элемент видим для событий мыши */
     overflow-y: auto; /* добавляем прокрутку по y, когда элемент не помещается на страницу */
 
-    
+
 /* свойства для кнопки "Закрыть" */
 .close {
     float: right;
     font-family: sans-serif;
-    font-size: 24px;
+    font-size: 50px;
     font-weight: 700;
     line-height: 1;
     color: #000;

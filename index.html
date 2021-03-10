@@ -89,7 +89,8 @@
                     <td class= "swot-style">' + (feature.properties['T'] !== null ? autolinker.link(feature.properties['T'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
-                layer.on('click', function (e) { $("#modal-content").html(popupContent);  });
+                layer.on('click', function (e) { $("#openModal").css("display", "block");  });
+                layer.on('click', function (e) { $("#modal_content").html(popupContent);  });
         }
 
         function style_locations() {
@@ -331,10 +332,10 @@
         
     </div>
     <div id="openModal" class="modal">
-    <a href="#close" title="Close" class="close">×</a>
-    <div id="modal-content">
-
+        <a href="#close" title="Close" class="close">×</a>
+        <div id="modal_content">
+        </div>
     </div>
-    </div>
+    $("#close").on("click", function(d){ $("#openModal").css("display", "none"); })
     </body>
 </html>
