@@ -50,6 +50,7 @@
         <script src="data/l__2.js"></script>
         <script src="data/l_3.js"></script>
         <script src="data/location.js"></script>
+        <script src="data/history.js"></script>
         <script>
         
 
@@ -186,7 +187,7 @@
          *************Елемент 3 **********
          ******************************** */
 
-        function pop___2(feature, layer) {
+        function pop_history(feature, layer) {
             var popupContent = '<table class="buildings-style">\
                     <tr>\
                         <th scope="row">Назва:</th>\
@@ -209,21 +210,6 @@
                         <td>' + (feature.properties['Status'] !== null ? autolinker.link(feature.properties['Status'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">First decr</th>\
-                        <td>' + (feature.properties['First decr'] !== null ? autolinker.link(feature.properties['First decr'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">First de_1</th>\
-                        <td>' + (feature.properties['First de_1'] !== null ? autolinker.link(feature.properties['First de_1'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">First de_2</th>\
-                        <td>' + (feature.properties['First de_2'] !== null ? autolinker.link(feature.properties['First de_2'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Old protec</th>\
-                        <td>' + (feature.properties['Old protec'] !== null ? autolinker.link(feature.properties['Old protec'].toLocaleString()) : '') + '</td>\
-                    </tr>\
                 </table>';
                 layer.bindPopup(popupContent, {maxHeight: 400});
         }
@@ -246,12 +232,12 @@
         }
 
 
-        var layer___2 = new L.geoJson(json___2, {
+        var layer_history = new L.geoJson(json___2, {
             attribution: '',
             interactive: true,
-            dataVar: 'json___2',
-            layerName: 'layer___2',
-            onEachFeature: pop___2,
+            dataVar: 'json_history',
+            layerName: 'layer_history',
+            onEachFeature: pop_history,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
@@ -262,8 +248,8 @@
         });
 
 
-        bounds_group.addLayer(layer___2);
-        map.addLayer(layer___2);
+        bounds_group.addLayer(layer_history);
+        map.addLayer(layer_history);
 
 
 
@@ -324,7 +310,7 @@
 
         L.control.layers(baseMaps,{
             '<img src="legend/rek.png" /> Реклама': layer__3,
-            '<img src="legend/buildings.png" /> Пам\'ятки історії': layer___2,
+            '<img src="legend/buildings.png" /> Пам\'ятки історії': layer_history,
             '<img src="legend/center.png" /> Історичний центр міста': layer__1,
             '<img src="legend/locations.png" /> Локації': layerLoc,
             
